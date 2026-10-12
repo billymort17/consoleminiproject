@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav class="navbar">
-    <h1> password checker </h1>
+    <h1> console adder </h1>
     <ul class="nav-list">
         <li><a href="index.php"> link to the home page </a></li>
     </ul>
