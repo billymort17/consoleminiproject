@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 12, 2026 at 08:07 AM
+-- Generation Time: Oct 12, 2026 at 08:26 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -30,7 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `console` (
   `consolename` int NOT NULL,
   `consoleprice` int NOT NULL,
-  `dateofmade` int NOT NULL
+  `dateofmade` int NOT NULL,
+  `consoleid` int NOT NULL,
+  `manufacturerid` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -41,14 +43,21 @@ CREATE TABLE `console` (
 
 CREATE TABLE `manufacturer` (
   `manufacturerid` int NOT NULL,
-  `manufactuerername` int NOT NULL,
-  `dateofestablished` int NOT NULL,
-  `companyaddress` int NOT NULL
+  `manufactuerername` text NOT NULL,
+  `dateofestablished` text NOT NULL,
+  `companyaddress` text NOT NULL,
+  `consoleid` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `console`
+--
+ALTER TABLE `console`
+  ADD PRIMARY KEY (`consoleid`);
 
 --
 -- Indexes for table `manufacturer`
@@ -59,6 +68,12 @@ ALTER TABLE `manufacturer`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `console`
+--
+ALTER TABLE `console`
+  MODIFY `consoleid` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `manufacturer`
