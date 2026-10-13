@@ -17,11 +17,19 @@
 
 <form action='result.php' method="post">
     <!-- label will show the text that you put between the tags -->
-    <label for="console adder"> password
-        <!-- allowing the user to input a unique set of text -->
-        <!-- the required forces an input from the user -->
-        <input type="text" name="addconsole" id="console" required> <br>
+    <label for="manufacturers"> choose a manufacturer
+        <select name="manufacturer" id="manufacturers">
+            <option
+                    value="microsoft"> Microsoft</option>
+            <option
+                    value="sony"> Sony</option>
+            <option
+                    value="nintendo"> Nintendo</option>
+            <option
+                    value="steam"> Steam</option>
+        </select>
         <button type="submit" id="display" name="display"> submit </button> <br>
+
     </label>
 
 
