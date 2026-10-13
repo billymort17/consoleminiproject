@@ -1,4 +1,7 @@
 <?php
+//import the stuff
+require_once "assets/dbconn.php";
+require_once "assets/common.php";
 ?>
 <!doctype html>
 
