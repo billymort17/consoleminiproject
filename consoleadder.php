@@ -7,7 +7,7 @@ require_once "assets/common.php";
 
 <head>
     <title>console adder</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin/styles.css">
 </head>
 <body>
 <nav class="navbar">

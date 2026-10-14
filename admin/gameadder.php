@@ -1,66 +1,41 @@
 <?php
+
+session_start();
+
+require_once "assets/common.php";
+require_once "assets/dbconn.php";
 ?>
-<!doctype html>
+
+<!DOCTYPE>
+
+<html>
 
 <head>
     <title>console adder</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<nav class="navbar">
-    <h1> console adder </h1>
-    <ul class="nav-list">
-        <li><a href="index.php"> link to the home page </a></li>
-    </ul>
-</nav>
-<hr>
-
-<form action='' method="post">
+<form method="post" action="">
     <?php
-    //php code to handle adding a console
+    $_SESSION["usermessage"] = "";
 
-    //check if was sent as post request from form
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        try {
-            if(addconsole(dbconnect_insert())) { //if it works go into this
-                //alert that they signed up
-                header('Location: success.php');
-                exit();
-            }
-        } catch (PDOException $e) { //catch db error
-            $_Session["usermessage"] = "Database error: " . $e->getMessage();
-            // Throw the exception
-            throw $e; // Re-throw the exception  // outputs the error
-        } catch (Exception $e) { //catch other error
-            $_Session["usermessage"] = "Exception: " . $e->getMessage();
-            throw $e;
+        if (addGame(dbconnect_insert())) {
+            echo "here";
+            $_SESSION["usermessage"] = "You're console was successfully registered.";
+            exit;
+        } else {
+            $_SESSION["usermessage"] = "There was an error registering your console.";
+            exit;
         }
     }
+    echo $_SESSION["usermessage"];
     ?>
-    <!-- label will show the text that you put between the tags -->
-    <label for="games"> choose a game
-    <select name="consoles" id="consoles">
-        <option
-                value="gta"> Gta</option>
-        <option
-                value="Cod"> Cod</option>
-        <option
-                value="Minecraft"> Minecraft</option>
-        <option
-                value="arcraiders"> Arc raiders</option>
-        <option
-                value="valheim"> Valheim</option>
-        <option
-                value="battlefront"> Battlefront</option>
-        <option
-                value="etb"> Escape the backrooms</option>
-        <option
-                value="terraria"> Terraria</option>
-    </select>
-        <button type="submit" id="display" name="display"> submit </button> <br>
 
-    </label>
-
-
+    <input type="text" name="gamename" placeholder="game" required>
+    <input type="text" name="gamedate" placeholder="n/n/n" required>
+    <input type="text" name="gameprice" placeholder="£00.01" required>
+    <input type="submit" name="game" placeholder="submit">
 </form>
 </body>
+</html>

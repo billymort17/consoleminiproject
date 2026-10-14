@@ -26,6 +26,8 @@ function addManufacturer($conn){
     $stmt->bindParam(1, $_POST['manuname']);
     $stmt->bindParam(2, $_POST['manumail']);
     $stmt->bindParam(3, $_POST['manuaddress']);
+    $stmt->bindParam(1, $_POST['dateestablished']);
+
 
     $stmt->execute(); //run the query to insert
     $conn = null; //closes the connection so cant be abused
@@ -68,12 +70,12 @@ function user_message() {
 //function to add a school
 function addGame($conn){
     //prepare and execute the sql query
-    $sql = "INSERT INTO game (SchoolName, SchoolEmail, SchoolLocation) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO game (gamename, creationdate, gameprice) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql); //prepare to sql
 
-    $stmt->bindParam(1, $_POST['schname']);
-    $stmt->bindParam(2, $_POST['schemail']);
-    $stmt->bindParam(3, $_POST['schloc']);
+    $stmt->bindParam(1, $_POST['gamename']);
+    $stmt->bindParam(2, $_POST['gamedate']);
+    $stmt->bindParam(3, $_POST['gameprice']);
 
     $stmt->execute(); //run the query to insert
     $conn = null; //closes the connection so cant be abused
