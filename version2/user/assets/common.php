@@ -17,22 +17,7 @@ function usr_msg(){
 
 
 
-//function to add a manufacturer
-function addManufacturer($conn){
-    //prepare and execute the sql query
-    $sql = "INSERT INTO manufacturer (manufacturername, dateofestablished, companyaddress) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql); //prepare to sql
 
-    $stmt->bindParam(1, $_POST['manuname']);
-    $stmt->bindParam(2, $_POST['manumail']);
-    $stmt->bindParam(3, $_POST['manuaddress']);
-    $stmt->bindParam(1, $_POST['dateestablished']);
-
-
-    $stmt->execute(); //run the query to insert
-    $conn = null; //closes the connection so cant be abused
-    return true; //registration successfull
-}
 
 //function to add a console
 function addConsole($conn){
@@ -85,7 +70,7 @@ function addGame($conn){
 //function to check if the user exusts
 function onlyuser($conn, $email) {
     //make statement add params and execute it
-    $sql = "SELECT email FROM user WHERE email = ?";
+    $sql = "SELECT useremail FROM user WHERE useremail = ?";
     $stmt = $conn->prepare($sql);
     $stmt ->bindParam(1, $email);
     $stmt ->execute();
@@ -98,7 +83,7 @@ function onlyuser($conn, $email) {
 }
 
 function reguser($conn) {
-    $sql = "INSERT INTO user (name, email, pswd) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO user(adminname, adminemail, adminpassword) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql); //prepare the sql
 
     //hash the pswd
@@ -115,5 +100,31 @@ function reguser($conn) {
     $conn = null; //closes the connection so cant be abused
     return true; //registration successful
 }
+
+//function to login to an account
+function login($conn) {
+    //make the statement
+    $sql = "SELECT * FROM user WHERE useremail = ?";
+    $stmt = $conn->prepare($sql);
+
+    //bind the params
+    $stmt->bindParam(1, $_POST["email"]);
+    $stmt->execute(); //run the cmd
+    //get the result
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+    //set logged in default
+    $loggedin = false;
+    if ($result) {
+        $loggedin = password_verify($_POST["pswd"], $result[0]["pswd"]);
+    }
+
+    //if logged in return user id
+    if ($loggedin) {return $result[0]["user_id"];}
+    return false;
+}
+
+
+
 
 

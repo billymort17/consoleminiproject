@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 13, 2026 at 12:19 PM
+-- Generation Time: Oct 14, 2026 at 10:54 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -24,10 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `console`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `console` (
+CREATE TABLE `admin` (
+  `adminid` int NOT NULL,
+  `adminname` text NOT NULL,
+  `adminpassword` text NOT NULL,
+  `adminemail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consoles`
+--
+
+CREATE TABLE `consoles` (
   `consolename` text NOT NULL,
   `consoleprice` int NOT NULL,
   `dateofmade` text NOT NULL,
@@ -94,14 +107,33 @@ CREATE TABLE `publisher` (
   `publisheraddress` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userid` int NOT NULL,
+  `username` text NOT NULL,
+  `userpassword` text NOT NULL,
+  `useremail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `console`
+-- Indexes for table `admin`
 --
-ALTER TABLE `console`
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminid`);
+
+--
+-- Indexes for table `consoles`
+--
+ALTER TABLE `consoles`
   ADD PRIMARY KEY (`consoleid`),
   ADD UNIQUE KEY `manufacturerid` (`manufacturerid`);
 
@@ -133,13 +165,25 @@ ALTER TABLE `publisher`
   ADD PRIMARY KEY (`publisherid`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `console`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `console`
+ALTER TABLE `admin`
+  MODIFY `adminid` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `consoles`
+--
+ALTER TABLE `consoles`
   MODIFY `consoleid` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -167,14 +211,20 @@ ALTER TABLE `publisher`
   MODIFY `publisherid` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userid` int NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `console`
+-- Constraints for table `consoles`
 --
-ALTER TABLE `console`
-  ADD CONSTRAINT `console_ibfk_1` FOREIGN KEY (`manufacturerid`) REFERENCES `manufacturer` (`manufacturerid`);
+ALTER TABLE `consoles`
+  ADD CONSTRAINT `consoles_ibfk_1` FOREIGN KEY (`manufacturerid`) REFERENCES `manufacturer` (`manufacturerid`);
 
 --
 -- Constraints for table `game`
@@ -182,7 +232,7 @@ ALTER TABLE `console`
 ALTER TABLE `game`
   ADD CONSTRAINT `game_ibfk_2` FOREIGN KEY (`developerid`) REFERENCES `developer` (`developerid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `game_ibfk_3` FOREIGN KEY (`publisherid`) REFERENCES `publisher` (`publisherid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `game_ibfk_4` FOREIGN KEY (`consoleid`) REFERENCES `console` (`consoleid`);
+  ADD CONSTRAINT `game_ibfk_4` FOREIGN KEY (`consoleid`) REFERENCES `consoles` (`consoleid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

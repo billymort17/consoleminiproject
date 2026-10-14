@@ -116,4 +116,26 @@ function reguser($conn) {
     return true; //registration successful
 }
 
+//function to login to an account
+function login($conn) {
+    //make the statement
+    $sql = "SELECT * FROM user WHERE useremail = ?";
+    $stmt = $conn->prepare($sql);
+
+    //bind the params
+    $stmt->bindParam(1, $_POST["email"]);
+    $stmt->execute(); //run the cmd
+    //get the result
+    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+    //set logged in default
+    $loggedin = false;
+    if ($result) {
+        $loggedin = password_verify($_POST["pswd"], $result[0]["pswd"]);
+    }
+
+    //if logged in return user id
+    if ($loggedin) {return $result[0]["user_id"];}
+    return false;
+}
 

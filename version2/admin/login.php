@@ -19,9 +19,9 @@ if (isset($_POST["name"])) {
     //check if pswd = pswd check
     if ($_POST["pswd"] == $_POST["cpswd"]){
         //check the isn't taken
-        if (onlyuser(dbconnect_insert(), $_POST["email"])) {
+        if (onlyadmin(dbconnect_insert(), $_POST["email"])) {
             //register
-            reguser(dbconnect_insert());
+            regadmin(dbconnect_insert());
             //set to login as account made
             $_SESSION["page"] = "login";
             //refresh page
@@ -50,3 +50,40 @@ else if (isset($_POST["email"])) {
 }
 
 ?>
+
+<!-- use title div class cos it works and i don't have to make another -->
+<div class="formbackground">
+    <!-- div for the form -->
+    <div class="form">
+        <!-- make the form for inputs -->
+        <form action="login.php" method="post">
+            <?php
+            if ($loginPage) { echo'
+            <h1> Admin Login</h1>
+            <label for="email">Email</label><br>
+            <input name="email" id="email" placeholder="Enter Email..." type="email" required><br>
+            <label for="pswd">Password</label>
+            <input name="pswd" id="pswd" placeholder="Enter password..." type="password" required><br>
+            <button type="submit">Login</button><br>
+            <a href="?page=register">Dont have an account? Register</a>
+            ';}
+            else {
+                echo '
+            <h1> Admin Signup</h1>
+            <!-- put all the inputs and labels in a table to align em -->
+            <label for="name">Name</label><br>
+            <input name="name" id="name" placeholder="Enter Name..." type="text" required><br>
+            <label for="email">Email</label><br>
+            <input name="email" id="email" placeholder="Enter Email..." type="email" required><br>
+            <label for="pswd">Password</label>
+            <input name="pswd" id="pswd" placeholder="Enter password..." type="password" required><br>
+            <label for="cpswd">Confirm Password</label>
+            <input name="cpswd" id="cpswd" placeholder="Confirm password..." type="password" required><br>
+            <button type="submit">Signup</button><br>
+            <a href="?page=login">Already have an account? Login</a>
+                ';
+            }
+            ?>
+        </form>
+    </div>
+</div>
