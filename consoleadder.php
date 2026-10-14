@@ -7,13 +7,13 @@ require_once "assets/common.php";
 
 <head>
     <title>console adder</title>
-    <link rel="stylesheet" href="admin/styles.css">
+    <link rel="stylesheet" href="version1/admin/styles.css">
 </head>
 <body>
 <nav class="navbar">
     <h1> console adder </h1>
     <ul class="nav-list">
-        <li><a href="admin/index.php"> link to the home page </a></li>
+        <li><a href="version1/admin/index.php"> link to the home page </a></li>
     </ul>
 </nav>
 <hr>

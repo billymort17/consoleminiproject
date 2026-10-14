@@ -1,0 +1,17 @@
+nav ul {
+    background-color: darkgreen;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    height: 50px;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a{
+display: block;
+color: white;
+text-align: left;
+padding: 14px 16px;
+}

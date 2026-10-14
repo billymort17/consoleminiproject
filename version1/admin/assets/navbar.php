@@ -1,15 +1,21 @@
-<?php
-//import the stuff
-require_once "assets/dbconn.php";
-require_once "assets/common.php";
-?>
 <!doctype html>
 
 <head>
-    <title>console adder</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>navbar g console</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
+<?php
+//if logged in
+if (isset($_POST["email"])) {
+$_SESSION["userid"] = login(dbconnect_insert());
+if ($_SESSION["userid"] != false) {
+header("Location: navbar1.php");
+exit;
+}
+}
+?>
 <nav class="navbar">
     <h1> console home page </h1>
     <ul class="nav-list">
@@ -19,6 +25,4 @@ require_once "assets/common.php";
         <li><a href="gameadder.php"> link to the games page </a></li>
     </ul>
 </nav>
-<br>
-<hr>
 </body>

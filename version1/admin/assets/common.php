@@ -82,4 +82,38 @@ function addGame($conn){
     return true; //registration successfull
 }
 
+//function to check if the user exusts
+function onlyuser($conn, $email) {
+    //make statement add params and execute it
+    $sql = "SELECT email FROM user WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt ->bindParam(1, $email);
+    $stmt ->execute();
+
+    //get results
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //return if the user is valid(not in use already)
+    return !$result;
+}
+
+function reguser($conn) {
+    $sql = "INSERT INTO user (name, email, pswd) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql); //prepare the sql
+
+    //hash the pswd
+    $pswd = password_hash($_POST["pswd"], PASSWORD_DEFAULT);
+
+    //add parameters
+    $stmt->bindParam(1, $_POST["name"]);
+    $stmt->bindParam(2, $_POST["email"]);
+    $stmt->bindParam(3, $pswd); //hash the password
+
+    //execute the statement
+    $stmt->execute();
+
+    $conn = null; //closes the connection so cant be abused
+    return true; //registration successful
+}
+
 
