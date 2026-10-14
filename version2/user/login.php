@@ -1,7 +1,7 @@
 <?php
 //imports
-require_once "assets/common.php";
-require_once "assets/dbconn.php";
+require_once ("assets/common.php");
+require_once ("assets/dbconn.php");
 
 //start the session
 session_start();
@@ -69,7 +69,7 @@ else if (isset($_POST["email"])) {
             else {
                 echo '
             <h1> User Signup</h1>
-            <!-- put all the inputs and labels in a table to allign em -->
+            <!-- put in all the inputs and labels in a table to align them -->
             <label for="name">Name</label><br>
             <input name="name" id="name" placeholder="Enter Name..." type="text" required><br>
             <label for="email">Email</label><br>

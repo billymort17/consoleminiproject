@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once "assets/common.php";
-require_once "assets/dbconn.php";
+require_once ("assets/common.php");
+require_once ("assets/dbconn.php");
 ?>
 
 <!DOCTYPE>

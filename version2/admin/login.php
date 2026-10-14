@@ -1,7 +1,7 @@
 <?php
 //imports
-require_once "assets/common.php";
-require_once "assets/dbconn.php";
+require_once ("assets/common.php");
+require_once ("assets/dbconn.php");
 
 //start the session
 session_start();

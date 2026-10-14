@@ -15,3 +15,7 @@ color: white;
 text-align: left;
 padding: 14px 16px;
 }
+
+body{
+    margin: 0;
+}
