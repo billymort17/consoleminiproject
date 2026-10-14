@@ -15,7 +15,28 @@
 </nav>
 <hr>
 
-<form action='result.php' method="post">
+<form action='' method="post">
+    <?php
+    //php code to handle adding a console
+
+    //check if was sent as post request from form
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        try {
+            if(addconsole(dbconnect_insert())) { //if it works go into this
+                //alert that they signed up
+                header('Location: success.php');
+                exit();
+            }
+        } catch (PDOException $e) { //catch db error
+            $_Session["usermessage"] = "Database error: " . $e->getMessage();
+            // Throw the exception
+            throw $e; // Re-throw the exception  // outputs the error
+        } catch (Exception $e) { //catch other error
+            $_Session["usermessage"] = "Exception: " . $e->getMessage();
+            throw $e;
+        }
+    }
+    ?>
     <!-- label will show the text that you put between the tags -->
     <label for="games"> choose a game
     <select name="consoles" id="consoles">

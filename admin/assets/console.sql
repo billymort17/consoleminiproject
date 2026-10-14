@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 13, 2026 at 08:20 AM
+-- Generation Time: Oct 13, 2026 at 12:19 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `console` (
-  `consolename` int NOT NULL,
+  `consolename` text NOT NULL,
   `consoleprice` int NOT NULL,
-  `dateofmade` int NOT NULL,
+  `dateofmade` text NOT NULL,
   `consoleid` int NOT NULL,
   `manufacturerid` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -57,8 +57,8 @@ CREATE TABLE `developer` (
 
 CREATE TABLE `game` (
   `gameid` int NOT NULL,
-  `gamename` int NOT NULL,
-  `creationdate` int NOT NULL,
+  `gamename` text NOT NULL,
+  `creationdate` text NOT NULL,
   `price` int NOT NULL,
   `publisherid` int NOT NULL,
   `developerid` int NOT NULL,
@@ -76,7 +76,8 @@ CREATE TABLE `manufacturer` (
   `manufactuerername` text NOT NULL,
   `dateofestablished` text NOT NULL,
   `companyaddress` text NOT NULL,
-  `consoleid` int NOT NULL
+  `consoleid` int NOT NULL,
+  `manufactureremail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

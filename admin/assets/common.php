@@ -35,12 +35,12 @@ function addManufacturer($conn){
 //function to add a console
 function addConsole($conn){
     //prepare and execute the sql query
-    $sql = "INSERT INTO console (SchoolName, SchoolEmail, SchoolLocation) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO consoles (consolename, consoleprice , dateofmade ) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql); //prepare to sql
 
-    $stmt->bindParam(1, $_POST['schname']);
-    $stmt->bindParam(2, $_POST['schemail']);
-    $stmt->bindParam(3, $_POST['schloc']);
+    $stmt->bindParam(1, $_POST['conname']);
+    $stmt->bindParam(2, $_POST['conprice']);
+    $stmt->bindParam(3, $_POST['conmade']);
 
     $stmt->execute(); //run the query to insert
     $conn = null; //closes the connection so cant be abused
