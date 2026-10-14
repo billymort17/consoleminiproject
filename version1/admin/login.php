@@ -52,18 +52,10 @@ else if (isset($_POST["email"])) {
 ?>
 
     <!-- use title div class cos it works and i don't have to make another -->
-    <div class="formbackground">
-        <!-- div for the form -->
-        <div class="form">
-            <!-- make the form for inputs -->
-            <form action="login.php" method="post">
-<?php
-if ($loginPage) { echo'
-            <h1> admin or user </h1>
-            <a href="?page=admin">Do you want to login as a admin?</a>
-             <a href="?page=user">do you want to login/sign up as a user?</a>
-            ';}
-else {
+<h1> admin or user </h1>
+<a href="?page=admin">Do you want to login as a admin?</a>
+<a href="?page=user">do you want to login/sign up as a user?</a>
+
 ?>
 }
 
@@ -83,6 +75,7 @@ else {
             <button type="submit">Login</button><br>
             <a href="?page=register">Dont have an account? Register</a>
             ';}
+
             else {
                 echo '
             <h1> Admin Signup</h1>
@@ -99,7 +92,7 @@ else {
             <a href="?page=login">Already have an account? Login</a>
                 ';
             }
-            ?>
+?>
         </form>
     </div>
 </div>
