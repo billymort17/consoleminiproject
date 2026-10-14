@@ -10,8 +10,8 @@
 <nav class="navbar">
     <h1> console home page </h1>
     <ul class="nav-list">
-        <li><a href="login.php"> link to the login page </a></li>
-        <li><a href="logout.php"> link to the logout page </a></li>
+        <li><a href="index.php"> link to the login page </a></li>
+        <li><a href="collection.php"> link to the logout page </a></li>
         <li><a href="information.php"> link to the information page </a></li>
     </ul>
 </nav>
