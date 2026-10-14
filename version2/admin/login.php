@@ -67,22 +67,7 @@ else if (isset($_POST["email"])) {
             <button type="submit">Login</button><br>
             <a href="?page=register">Dont have an account? Register</a>
             ';}
-            else {
-                echo '
-            <h1> Admin Signup</h1>
-            <!-- put all the inputs and labels in a table to align em -->
-            <label for="name">Name</label><br>
-            <input name="name" id="name" placeholder="Enter Name..." type="text" required><br>
-            <label for="email">Email</label><br>
-            <input name="email" id="email" placeholder="Enter Email..." type="email" required><br>
-            <label for="pswd">Password</label>
-            <input name="pswd" id="pswd" placeholder="Enter password..." type="password" required><br>
-            <label for="cpswd">Confirm Password</label>
-            <input name="cpswd" id="cpswd" placeholder="Confirm password..." type="password" required><br>
-            <button type="submit">Signup</button><br>
-            <a href="?page=login">Already have an account? Login</a>
-                ';
-            }
+
             ?>
         </form>
     </div>
