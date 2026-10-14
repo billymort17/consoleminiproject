@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 14, 2026 at 10:54 AM
+-- Generation Time: Oct 14, 2026 at 01:27 PM
 -- Server version: 8.4.3
--- PHP Version: 8.3.30
+-- PHP Version: 8.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `console`
+-- Database: `consoles`
 --
 
 -- --------------------------------------------------------
@@ -76,6 +76,18 @@ CREATE TABLE `game` (
   `publisherid` int NOT NULL,
   `developerid` int NOT NULL,
   `consoleid` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `game-user`
+--
+
+CREATE TABLE `game-user` (
+  `gameid` int NOT NULL,
+  `consoleid` int NOT NULL,
+  `userid` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -151,6 +163,14 @@ ALTER TABLE `game`
   ADD UNIQUE KEY `publisherid` (`publisherid`,`developerid`),
   ADD UNIQUE KEY `consoleid` (`consoleid`),
   ADD KEY `developerid` (`developerid`);
+
+--
+-- Indexes for table `game-user`
+--
+ALTER TABLE `game-user`
+  ADD UNIQUE KEY `userid` (`userid`),
+  ADD UNIQUE KEY `gameid` (`gameid`,`consoleid`),
+  ADD KEY `consoleid` (`consoleid`);
 
 --
 -- Indexes for table `manufacturer`
@@ -233,6 +253,14 @@ ALTER TABLE `game`
   ADD CONSTRAINT `game_ibfk_2` FOREIGN KEY (`developerid`) REFERENCES `developer` (`developerid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `game_ibfk_3` FOREIGN KEY (`publisherid`) REFERENCES `publisher` (`publisherid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `game_ibfk_4` FOREIGN KEY (`consoleid`) REFERENCES `consoles` (`consoleid`);
+
+--
+-- Constraints for table `game-user`
+--
+ALTER TABLE `game-user`
+  ADD CONSTRAINT `game-user_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `game-user_ibfk_2` FOREIGN KEY (`gameid`) REFERENCES `game` (`gameid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `game-user_ibfk_3` FOREIGN KEY (`consoleid`) REFERENCES `consoles` (`consoleid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
