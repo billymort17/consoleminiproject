@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 14, 2026 at 01:27 PM
+-- Generation Time: Oct 19, 2026 at 10:05 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.33
 
@@ -32,6 +32,18 @@ CREATE TABLE `admin` (
   `adminname` text NOT NULL,
   `adminpassword` text NOT NULL,
   `adminemail` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `console-game`
+--
+
+CREATE TABLE `console-game` (
+  `gameid` int NOT NULL,
+  `consoleid` int NOT NULL,
+  `consolegameid` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -143,6 +155,14 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`adminid`);
 
 --
+-- Indexes for table `console-game`
+--
+ALTER TABLE `console-game`
+  ADD PRIMARY KEY (`consolegameid`),
+  ADD UNIQUE KEY `gameid` (`gameid`,`consoleid`),
+  ADD KEY `consoleid` (`consoleid`);
+
+--
 -- Indexes for table `consoles`
 --
 ALTER TABLE `consoles`
@@ -239,6 +259,13 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `console-game`
+--
+ALTER TABLE `console-game`
+  ADD CONSTRAINT `console-game_ibfk_1` FOREIGN KEY (`consoleid`) REFERENCES `consoles` (`consoleid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `console-game_ibfk_2` FOREIGN KEY (`gameid`) REFERENCES `game` (`gameid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `consoles`
