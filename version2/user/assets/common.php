@@ -124,6 +124,21 @@ function login($conn) {
     return false;
 }
 
+//function to add person to el database
+function register($conn){
+    //prepare and execute the sql query
+    $sql = "INSERT INTO userinfo (FirstName, LastName, Email) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql); //prepare to sql
+
+    $stmt->bindParam(1, $_POST['fname']);
+    $stmt->bindParam(2, $_POST['lname']);
+    $stmt->bindParam(3, $_POST['email']);
+
+    $stmt->execute(); //run the query to insert
+    $conn = null; //closes the connection so cant be abused
+    return true; //registration successful
+}
+
 
 
 

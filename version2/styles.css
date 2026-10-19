@@ -1,25 +1,37 @@
 .navbar {
-    background-color: darkgreen;
+    background-color: darkslategray;
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    height: 120px;
     overflow: hidden;
-    height: 50px;
+}
 .navbar-title{
-    font-size: 1.5rem;
+    font-size: 5rem;
     color: white;
+    background-color: black;
 }
-}
+
 .nav-list{
+    list-style-type: none;
+}
+.nav-list li{
     float: left;
 }
 .nav-list a{
 display: block;
 color: white;
-text-align: left;
 padding: 14px 16px;
+text-align: center;
 }
-
+.nav-list a:hover {
+    background-color: aqua;
+}
 body{
     margin: 0;
+    background-color: darkgreen;
+}
+hr {
+    color: gray;
+    background-color: gray;
+    height: 30px;
 }

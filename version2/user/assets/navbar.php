@@ -17,7 +17,7 @@ exit;
 }
 ?>
 <div class="navbar-title"> console home page</div>
-<br>
+<hr>
 <nav class="navbar">
     <ul class="nav-list">
         <li><a href="login.php"> link to the login page </a></li>
