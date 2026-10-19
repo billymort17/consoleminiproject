@@ -1,4 +1,4 @@
-<?php
+ <?php
 //imports
 require_once ("assets/common.php");
 require_once ("assets/dbconn.php");

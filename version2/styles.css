@@ -1,14 +1,15 @@
 .navbar {
     background-color: darkslategray;
-    margin: 0;
     padding: 0;
     height: 120px;
     overflow: hidden;
+    margin-top:auto;
 }
-.navbar-title{
+h1{
     font-size: 5rem;
     color: white;
     background-color: black;
+    text-align: center;
 }
 
 .nav-list{
