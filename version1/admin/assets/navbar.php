@@ -2,7 +2,7 @@
 
 <head>
     <title>navbar g console</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../../version3/styles.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@ exit;
         <li><a href="login.php"> link to the login page </a></li>
         <li><a href="makeradder.php"> link to the manufacturers page </a></li>
         <li><a href="consoleadder.php"> link to the console page </a></li>
-        <li><a href="gameadder.php"> link to the games page </a></li>
+        <li><a href="../gameadder.php"> link to the games page </a></li>
     </ul>
 </nav>
 </body>

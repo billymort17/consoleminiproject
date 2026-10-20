@@ -1,10 +1,4 @@
-<?php
 
-session_start();
-
-require_once "assets/common.php";
-require_once "assets/dbconn.php";
-?>
 
 <!DOCTYPE>
 
@@ -16,21 +10,7 @@ require_once "assets/dbconn.php";
 
 <body>
 <form method="post" action="">
-<?php
-    $_SESSION["usermessage"] = "";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (addConsole(dbconnect_insert())) {
-            echo "here";
-            $_SESSION["usermessage"] = "You're console was successfully registered.";
-            exit;
-        } else {
-            $_SESSION["usermessage"] = "There was an error registering your console.";
-            exit;
-        }
-    }
-    echo $_SESSION["usermessage"];
-    ?>
 
     <input type="text" name="conname" placeholder="console" required>
     <input type="text" name="conprice" placeholder="£00.01" required>

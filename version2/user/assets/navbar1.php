@@ -7,9 +7,9 @@
 
 <body>
 
-<nav class="navbar">
+<nav>
     <h1> console home page </h1>
-    <ul class="nav-list">
+    <ul>
         <li><a href="index.php"> link to the login page </a></li>
         <li><a href="collection.php"> link to the logout page </a></li>
         <li><a href="information.php"> link to the information page </a></li>

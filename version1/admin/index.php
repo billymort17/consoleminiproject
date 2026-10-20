@@ -1,13 +1,8 @@
-<?php
-//import the stuff
-require_once "assets/dbconn.php";
-require_once "assets/common.php";
-?>
 <!doctype html>
 
 <head>
     <title>console adder</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../version3/styles.css">
 </head>
 <body>
 <?php
