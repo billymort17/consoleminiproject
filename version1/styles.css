@@ -1,12 +1,17 @@
-nav {
+nav.nav{
     position: fixed;
     top: 0;
     width: 100%;
-    float: left;
     margin-top: 30px;
+
+
 }
 
-
+.navbar-title{
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+}
 ul{
     list-style-type: none;
     background-color: darkslategray;
@@ -23,7 +28,7 @@ display: block;
 color: white;
 padding: 14px 16px;
 text-align: center;
-    text-decoration: none;
+text-decoration: none;
 }
 ul li a:hover {
     background-color: aqua;
@@ -32,13 +37,7 @@ body{
     margin: 0;
     background-color: darkgreen;
 }
-.navbar-title{
-    font-size: 5rem;
-    color: white;
-    background-color: black;
-    text-align: center;
 
-}
 hr {
     color: gray;
     background-color: gray;

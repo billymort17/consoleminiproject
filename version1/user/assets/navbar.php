@@ -6,8 +6,8 @@
 </head>
 
 <body>
-<div class="navbar-title"> console home page</div>
-    <nav>
+    <nav class="navbar">
+        <div class="navbar-title"> console home page</div>
         <ul>
             <li><a href="login.php"> link to the login page </a></li>
             <li><a href="logout.php"> link to the logout page </a></li>
