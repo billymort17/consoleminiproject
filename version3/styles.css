@@ -1,18 +1,24 @@
+nav.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-top: 30px;
 
-h1{
-    font-size: 5rem;
-    color: white;
-    background-color: black;
-    text-align: center;
+
 }
 
+.navbar-title{
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+}
 ul{
     list-style-type: none;
     background-color: darkslategray;
     padding: 0;
     height: 120px;
     overflow: hidden;
-    margin-top:auto;
+
 }
 ul li{
     float: left;
@@ -22,7 +28,7 @@ display: block;
 color: white;
 padding: 14px 16px;
 text-align: center;
-    text-decoration: none;
+text-decoration: none;
 }
 ul li a:hover {
     background-color: aqua;
@@ -31,6 +37,7 @@ body{
     margin: 0;
     background-color: darkgreen;
 }
+
 hr {
     color: gray;
     background-color: gray;

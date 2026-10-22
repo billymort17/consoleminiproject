@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-    <title>navbar g console</title>
+    <title>g console home page</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
